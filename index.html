@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Danish Putri ✨</title>
+    <!-- Google Fonts: Montserrat (Normal/Tebal) & Dancing Script (Lentik/Cantik) -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* === PENGATURAN UMUM === */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #fcf9f9;
+            color: #333;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        section {
+            min-height: 100vh;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        /* === FONT LENTIK / CANTIK === */
+        .font-cantik {
+            font-family: 'Dancing Script', cursive;
+            color: #d6336c;
+        }
+
+        /* === BAGIAN 1: HALAMAN PEMBUKA === */
+        #section-1 {
+            background: linear-gradient(to bottom, #fff0f3, #fcf9f9);
+        }
+        
+        .gallery-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .gallery-img {
+            position: absolute;
+            max-width: 160px;
+            border: 6px solid #fff;
+            border-radius: 8px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            opacity: 0;
+            animation: fadeInOut 7s infinite ease-in-out;
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: scale(0.9) translateY(10px); }
+            20% { opacity: 0.7; transform: scale(1) translateY(0); }
+            80% { opacity: 0.7; transform: scale(1) translateY(0); }
+            100% { opacity: 0; transform: scale(0.9) translateY(-10px); }
+        }
+
+        .hero-content {
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 2.5rem;
+            border-radius: 20px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            max-width: 600px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .hero-content p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        /* === BAGIAN 2: 3 VIDEO KENANGAN === */
+        .video-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 120px; /* SPACE ANTAR VIDEO DIPERBESAR */
+            width: 100%;
+            max-width: 700px;
+            margin-top: 60px;
+            margin-bottom: 60px;
+        }
+
+        .video-wrapper {
+            width: 100%;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            background: #000; 
+        }
+
+        video {
+            width: 100%;
+            display: block;
+        }
+
+        /* === BAGIAN 3: PESAN & HARAPAN === */
+        #section-3 {
+            background: #fff;
+        }
+
+        .wish-text {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #333;
+            margin: 1.5rem 0;
+            line-height: 1.6;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 1.2s ease, transform 1.2s ease;
+            max-width: 800px;
+        }
+
+        .wish-text.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* === BAGIAN 4: KEJUTAN AKHIR === */
+        #section-4 {
+            background: linear-gradient(to top, #fff0f3, #fff);
+        }
+
+        .btn-kejutan {
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            background: #d6336c;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(214, 51, 108, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .btn-kejutan:hover {
+            background: #b7265a;
+            transform: scale(1.05);
+        }
+
+        /* Container untuk teks dan video terakhir */
+        #kejutan-content {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+
+        .giant-text {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 30px;
+            animation: popIn 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        .giant-text span {
+            font-size: 3.5rem;
+        }
+
+        @keyframes popIn {
+            0% { opacity: 0; transform: scale(0.5); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .emoji {
+            position: fixed;
+            z-index: 9999;
+            font-size: 2rem;
+            pointer-events: none;
+            animation: fall linear forwards;
+        }
+
+        @keyframes fall {
+            to { transform: translateY(110vh) rotate(360deg); }
+        }
+
+        /* === TOMBOL MUSIK AWAL === */
+        #play-music-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 100;
+            padding: 12px 25px;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Tombol Play Music -->
+    <button id="play-music-btn">🎵 Nyalakan Musik</button>
+
+    <!-- AUDIO FILES -->
+    <audio id="backsound" loop>
+        <source src="sempurna.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="terompet">
+        <source src="terompet.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- BAGIAN 1: PEMBUKA -->
+    <section id="section-1">
+        <div class="gallery-container" id="gallery-container">
+            <!-- FOTO BACKGROUND -->
+            <img src="Danish1.jpg" class="gallery-img">
+            <img src="Danish2.jpg" class="gallery-img">
+            <img src="Danish3.jpg" class="gallery-img">
+            <img src="Danish4.jpg" class="gallery-img">
+            <img src="Danish5.jpg" class="gallery-img">
+            <img src="Danish6.jpg" class="gallery-img">
+            <img src="Danish7.jpg" class="gallery-img">
+            <img src="Danish8.jpg" class="gallery-img">
+            <img src="Danish9.jpg" class="gallery-img">
+            <img src="Danish10.jpg" class="gallery-img">
+        </div>
+        
+        <div class="hero-content">
+            <h1>Hai, Danish Putri!</h1>
+            <p>Coba scroll perlahan ke bawah, ya. Ada sesuatu yang udah disiapin khusus buat kamu.</p>
+        </div>
+    </section>
+
+    <!-- BAGIAN 2: 3 VIDEO HASIL EDITAN -->
+    <section id="section-2">
+        <div class="hero-content" style="background: transparent; box-shadow: none; margin-bottom: 0;">
+            <h2 class="font-cantik" style="font-size: 3rem; margin:0;">Untuk Kamu,</h2>
+            <p style="font-weight: 600;">Ini ada beberapa video yang udah aku edit khusus buat kamu. Selamat menonton!</p>
+        </div>
+        
+        <div class="video-grid">
+            <!-- VIDEO 1 -->
+            <div class="video-wrapper">
+                <video class="scroll-vid" muted playsinline controls>
+                    <source src="ninis1.mp4" type="video/mp4">
+                </video>
+            </div>
+            <!-- VIDEO 2 -->
+            <div class="video-wrapper">
+                <video class="scroll-vid" muted playsinline controls>
+                    <source src="ninis2.mp4" type="video/mp4">
+                </video>
+            </div>
+            <!-- VIDEO 3 -->
+            <div class="video-wrapper">
+                <video class="scroll-vid" muted playsinline controls>
+                    <source src="ninis3.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <!-- BAGIAN 3: PESAN & HARAPAN -->
+    <section id="section-3">
+        <div class="wish-text">"Delapan belas tahun. Angka yang spesial buat orang yang juga spesial."</div>
+        <div class="wish-text">"Masa-masa ini mungkin bakal kerasa menantang, kadang bikin bingung, tapi pasti banyak juga hal yang bisa kamu dapetin"</div>
+        <div class="wish-text">"Setiap luka, kecewa, dan beban yang pernah kamu simpan perlahan berubah menjadi <span class="font-cantik" style="font-size: 1.8rem;">kekuatan</span>, bukan alasan untuk menyakiti dirimu sendiri."</div>
+        <div class="wish-text">"Semoga kamu bisa menjadi tempat yang aman bagi dirimu sendiri, tempat untuk beristirahat, memaafkan, dan tumbuh."</div>
+        <div class="wish-text">"Semoga kamu selalu dikelilingi hal-hal baik, jalan kamu selalu dimudahkan, dan yang paling penting...<br><span class="font-cantik" style="font-size: 1.8rem;">Semoga senyum tulus kamu nggak pernah pudar buat hadapi hari-hari ke depannya.</span>"</div>
+    </section>
+
+    <!-- BAGIAN 4: KEJUTAN AKHIR & VIDEO TERAKHIR -->
+    <section id="section-4">
+        <button id="btn-kejutan" class="btn-kejutan">Buka Kejutan Terakhir 🎁</button>
+        
+        <div id="kejutan-content">
+            <div class="giant-text">
+                Selamat Ulang Tahun ke-18,<br>
+                <span class="font-cantik">Danish Andriditya Putri Art!</span>
+            </div>
+            
+            <div class="video-wrapper" style="max-width: 800px;">
+                <video id="vid-terakhir" playsinline loop controls>
+                    <source src="ninis4.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // 1. Play Music Button
+        const bgm = document.getElementById('backsound');
+        const playBtn = document.getElementById('play-music-btn');
+        
+        playBtn.addEventListener('click', () => {
+            bgm.play();
+            playBtn.style.display = 'none';
+        });
+
+        // 2. Galeri Foto Tersebar Rapi (Tidak menumpuk di pojok)
+        const galleryImages = document.querySelectorAll('.gallery-img');
+        const positions = [
+            { top: 10, left: 10 }, { top: 15, left: 75 }, 
+            { top: 70, left: 10 }, { top: 65, left: 70 }, 
+            { top: 40, left: 5 },  { top: 45, left: 80 }, 
+            { top: 80, left: 40 }, { top: 5,  left: 45 },
+            { top: 25, left: 40 }, { top: 60, left: 45 }
+        ];
+
+        galleryImages.forEach((img, index) => {
+            const pos = positions[index % positions.length];
+            const finalTop = pos.top + (Math.random() * 5);
+            const finalLeft = pos.left + (Math.random() * 5);
+            const randomRotate = Math.floor(Math.random() * 40) - 20;
+            const randomDelay = Math.random() * 5; 
+
+            img.style.top = `${finalTop}%`;
+            img.style.left = `${finalLeft}%`;
+            img.style.transform = `rotate(${randomRotate}deg)`;
+            img.style.animationDelay = `${randomDelay}s`;
+        });
+
+        // 3. Logika Video (Satu per satu & Otomatis Pause Musik)
+        const scrollVideos = document.querySelectorAll('.scroll-vid');
+
+        function pauseSemuaVideoKecuali(videoYangMain) {
+            scrollVideos.forEach(vid => {
+                if (vid !== videoYangMain) {
+                    vid.pause();
+                }
+            });
+        }
+
+        // Listener saat video di-play
+        scrollVideos.forEach(vid => {
+            vid.addEventListener('play', function() {
+                pauseSemuaVideoKecuali(this); // Stop video lain
+                bgm.pause(); // Matikan backsound
+            });
+
+            vid.addEventListener('pause', function() {
+                // Cek apakah masih ada video yang nyala
+                const adaVideoMain = Array.from(scrollVideos).some(v => !v.paused);
+                if (!adaVideoMain && playBtn.style.display === 'none') {
+                    bgm.play(); // Nyalakan backsound lagi jika semua video berhenti
+                }
+            });
+        });
+
+        // Autoplay saat video masuk ke layar (scroll)
+        const videoObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.play(); // Ini akan memicu event 'play' di atas
+                } else {
+                    entry.target.pause(); // Ini akan memicu event 'pause' di atas
+                }
+            });
+        }, { threshold: 0.6 }); // Harus 60% terlihat di layar baru otomatis play
+        
+        scrollVideos.forEach(vid => videoObserver.observe(vid));
+
+        // 4. Efek Muncul Teks
+        const wishes = document.querySelectorAll('.wish-text');
+        const textObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.3 });
+
+        wishes.forEach(wish => textObserver.observe(wish));
+
+        // 5. Kejutan Hujan Emoji & Video Terakhir
+        const btnKejutan = document.getElementById('btn-kejutan');
+        const kejutanContent = document.getElementById('kejutan-content');
+        const terompet = document.getElementById('terompet');
+        const vidTerakhir = document.getElementById('vid-terakhir');
+
+        btnKejutan.addEventListener('click', () => {
+            terompet.play();
+            bgm.pause(); // Matikan lagu saat tombol ditekan
+            
+            // Hentikan semua video di atas jika masih ada yang menyala
+            scrollVideos.forEach(vid => vid.pause());
+
+            btnKejutan.style.display = 'none';
+            kejutanContent.style.display = 'flex';
+            
+            vidTerakhir.play();
+
+            createConfetti();
+        });
+
+        function createConfetti() {
+            const emojis = ['🎉', '🎂', '✨', '💖', '🎁', '🥳'];
+            const confettiCount = 120;
+
+            for (let i = 0; i < confettiCount; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+                    confetti.className = 'emoji';
+                    
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.top = '-50px';
+                    confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                    
+                    document.body.appendChild(confetti);
+
+                    setTimeout(() => {
+                        confetti.remove();
+                    }, 5000);
+                }, i * 40);
+            }
+        }
+    </script>
+</body>
+</html>
